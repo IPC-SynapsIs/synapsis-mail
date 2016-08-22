@@ -15,9 +15,9 @@ public class Mail {
     @GeneratedValue
     private long id;
 
-    protected Template template;
-
     private String subject;
+
+    private String content;
 
     private List<InternetAddress> to;
 
@@ -25,8 +25,8 @@ public class Mail {
 
     private boolean sent;
 
-    public Mail(Template template, String subject, List<InternetAddress> to, List<InternetAddress> from) {
-        this.template = template;
+    public Mail(String content, String subject, List<InternetAddress> to, List<InternetAddress> from) {
+        this.content = content;
         this.subject = subject;
         this.to = to;
         this.from = from;
@@ -38,14 +38,6 @@ public class Mail {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Template getTemplate() {
-        return template;
-    }
-
-    public void setTemplate(Template template) {
-        this.template = template;
     }
 
     public String getSubject() {
@@ -78,5 +70,13 @@ public class Mail {
 
     public void setSent(boolean sent) {
         this.sent = sent;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
